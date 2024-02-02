@@ -32,7 +32,7 @@ class ProblematicProblem
             var  userAge = int.Parse(Console.ReadLine());
             Console.WriteLine();
             Console.Write("Would you like to see the current list of activities? Sure/No thanks: ");
-            bool seeList = bool.Parse(Console.ReadLine());
+            bool seeList = (Console.ReadLine().ToLower() == "sure" || Console.ReadLine() == "yes"? true: false);
             if (seeList)
             {
                 foreach (string activity in activities)
@@ -42,7 +42,7 @@ class ProblematicProblem
                 }
                 Console.WriteLine();
                 Console.Write("Would you like to add any activities before we generate one? yes/no: ");
-                bool addToList = bool.Parse(Console.ReadLine());
+                bool addToList = Console.ReadLine() == "yes" ? true: false;
                 Console.WriteLine();
                 while (addToList)
                 {
@@ -56,7 +56,7 @@ class ProblematicProblem
                     }
                     Console.WriteLine();
                     Console.WriteLine("Would you like to add more? yes/no: ");
-                    addToList = bool.Parse(Console.ReadLine());
+                    addToList = (Console.ReadLine() == "yes" ? true : false);
                 }
             }
 
@@ -93,10 +93,10 @@ class ProblematicProblem
 
                     randomActivity = activities[randomNumber];
                 }
-                Console.Write($"Ah got it! {randomActivity}, your random activity is: {userName}! Is this ok or do you want to grab another activity? Keep/Redo: ");
+                Console.Write($"Ah got it! {userName}, your random activity is: {randomActivity}! Is this ok or do you want to grab another activity? Keep/Redo: ");
 
                 Console.WriteLine();
-                cont = bool.Parse(Console.ReadLine());
+                cont = Console.ReadLine() == "redo" ? true: false;
             }
 
         }
